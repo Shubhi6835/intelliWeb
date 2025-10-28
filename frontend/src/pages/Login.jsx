@@ -15,23 +15,25 @@ function Login() {
   const [err, setErr] = useState("")
 
   const handleSignIn = async (e) => {
-    e.preventDefault()
-    setErr("")
-    setLoading(true)
+    e.preventDefault();
+    setErr("");
+    setLoading(true);
     try {
-      await axios.post(`${serverUrl}/api/auth/login`, {
-        email, password
-      }, { withCredentials: true })
-      setUserData(result.data)
-      setLoading(false)
-      navigate("/")
+      const result = await axios.post(`${serverUrl}/api/auth/login`, {
+        email,
+        password,
+      }, { withCredentials: true }); // Capture the response in `result`
+      
+      setUserData(result.data); // Use `result.data` to set user data
+      navigate("/");
+      setLoading(false);
     } catch (error) {
-      console.log(error)
-      setUserData(null)
-      setLoading(false)
-      setErr(error.response?.data?.message || "Something went wrong")
+      console.log(error);
+      setUserData(null);
+      setLoading(false);
+      setErr(error.response?.data?.message || "Something went wrong");
     }
-  }
+  };
 
   return (
     <div
