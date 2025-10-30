@@ -39,7 +39,7 @@ function Customize2() {
         backgroundImage: `url(${imagebg})`, 
       }}
     >
-      <div className="absolute inset-0 bg-black/50"></div> {/* ✅ soft overlay for contrast */}
+      <div className="absolute inset-0 bg-black/50"></div> 
 
       <MdKeyboardBackspace
         className="absolute top-[30px] left-[30px] text-white cursor-pointer w-[25px] h-[25px] z-10 hover:text-blue-400 transition-all"
@@ -53,7 +53,7 @@ function Customize2() {
 
         <input
           type="text"
-          placeholder="e.g. Shifra"
+          placeholder="e.g. Jarvis"
           className="w-full h-[60px] outline-none border-2 border-[#6a9eff] bg-transparent text-white placeholder-gray-300 px-[20px] py-[10px] rounded-full text-[18px] focus:border-white transition-all"
           required
           onChange={(e) => setAssistantName(e.target.value)}
