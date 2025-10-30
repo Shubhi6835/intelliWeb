@@ -22,7 +22,12 @@ function Customize2() {
         formData.append("imageUrl", selectedImage)
       }
 
-      const result = await axios.post(`${serverUrl}/api/user/update`, formData, { withCredentials: true })
+      const result = await axios.post(`${serverUrl}/api/user/update`, formData, {
+      withCredentials: true,
+      headers: {
+      "Content-Type": "multipart/form-data"
+               }
+      })
       setLoading(false)
       setUserData(result.data)
       navigate("/")
